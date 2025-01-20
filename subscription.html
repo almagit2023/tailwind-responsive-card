@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Flip Subscription Card</title>
+  <style>
+    /* General Reset */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+      font-family: 'Roboto';
+    }
+
+    /* Card Container */
+    .card-container {
+      width: 300px;
+      height: 450px;
+      perspective: 1000px;
+      /* Enables the 3D effect */
+    }
+
+    /* Card */
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      /* Transform Style  */
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease-in-out;
+
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    /* Card Front & Back */
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    }
+
+    /* Front Side */
+    .card-front {
+      background: orange;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-front h2 {
+      color: #2575fc;
+      margin: 10px auto;
+    }
+
+    .card-front ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px auto;
+
+    }
+
+    .card-front ul li {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #444;
+      font-weight: 400;
+    }
+
+    .card-front button {
+      background: #2575fc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+      width: 75%;
+      margin: 0 auto;
+    }
+
+    .card-front button:hover {
+      background: #1e5ed7;
+    }
+
+    /* Back Side */
+    .card-back {
+      background: #2575fc;
+      color: white;
+      transform: rotateY(180deg);
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-back h2 {
+      margin-bottom: 20px;
+    }
+
+    .card-back p {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    .card-back button {
+      background: white;
+      color: #2575fc;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .card-back button:hover {
+      background: #f3f3f3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-container">
+    <div class="card" id="card">
+      <!-- Front Side -->
+      <div class="card-front">
+        <h2>Subscription Plan</h2>
+        <ul>
+          <li>Access to premium content</li>
+          <li>Ad-free experience</li>
+          <li>Priority customer support</li>
+          <li>Exclusive member perks</li>
+        </ul>
+        <button id="flipToBack">Read More</button>
+      </div>
+
+      <!-- Back Side -->
+      <div class="card-back">
+        <h2>Subscription Price</h2>
+        <p>Only $19.99/month</p>
+        <button id="flipToFront">Go Back</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById("card");
+    const flipToBackButton = document.getElementById("flipToBack");
+    const flipToFrontButton = document.getElementById("flipToFront");
+
+    flipToBackButton.addEventListener("click", () => {
+      card.classList.add("flipped");
+    });
+
+    flipToFrontButton.addEventListener("click", () => {
+      card.classList.remove("flipped");
+    });
+  </script>
+</body>
+
+</html>
