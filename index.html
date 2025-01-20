@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="output.css">
+  <title>Tailwind Page</title>
+  <style>
+    .left-block {
+      height: 100vh;
+    }
+
+    /* Hide sidebar by default on small screens */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 64%;
+        height: 100%;
+        transition: left 0.3s ease;
+        z-index: 1000;
+      }
+
+      .sidebar.active {
+        left: 0;
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+
+      .overlay.active {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+  <!-- Hamburger Menu Button for Small Screens -->
+  <button id="sidebarToggle" class="md:hidden fixed top-4 left-4 z-50 p-2 bg-green-600 rounded-lg text-white">
+    ☰
+  </button>
+
+  <!-- Overlay for Mobile Sidebar -->
+  <div id="overlay" class="overlay"></div>
+
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div id="sidebar" class="left-block bg-green-600 w-1/4 sidebar">
+      <aside class="text-center p-6">
+        <h1 class="text-3xl font-semibold text-white">SideBar</h1>
+        <nav class="mt-4">
+          <ul class="text-slate-50 space-y-2">
+            <li><a href="#" class="no-underline hover:underline">Home</a></li>
+            <li><a href="#" class="no-underline hover:underline">About</a></li>
+            <li><a href="#" class="no-underline hover:underline">Career</a></li>
+            <li><a href="#" class="no-underline hover:underline">Contact Us</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1">
+      <!-- Header -->
+      <header class="bg-slate-900 text-center px-4 py-6">
+        <div class="text-slate-50">
+          <h1 class="text-3xl font-semibold">Crypto News</h1>
+          <h2 class="text-gray-400 text-lg">Welcome to Crypto News...</h2>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="p-6 pb-24">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow light:bg-slate-50 dark:border-gray-700">
+            <a href="#">
+              <img class="rounded-t-lg" src="./images/btc.jpg" alt="btc" class="w-48 h-48 mb-4" />
+            </a>
+            <div class="p-5">
+              <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-950 light:text-white">BitCoin(BTC)</h5>
+              </a>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-800 text-justify">Introduced in 2009
+                by the pseudonymous Satoshi Nakamoto, Bitcoin is the first decentralized digital currency.</p>
+
+              <strong class="text-orange-400">
+                <p>Current Price: $102,282 per BTC</p>
+              </strong>
+              <a href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">
+                Read more
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow light:bg-slate-50 dark:border-gray-700">
+            <a href="#" class="">
+              <img class="rounded-t-lg" src="./images/eth.png" alt="btc" style="background-color:lightgrey;" />
+            </a>
+            <div class="p-5">
+              <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-950 light:text-white">Ethereum (ETH)</h5>
+              </a>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-800 text-justify">Launched in 2015 by Vitalik
+                Buterin, Ethereum is a decentralized platform that enables developers to build and deploy
+                smart contracts.</p>
+
+              <strong class="text-orange-400">
+                <p>Current Price: $3,754 per ETH</p>
+              </strong>
+              <a href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">
+                Read more
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow light:bg-slate-50 dark:border-gray-700">
+            <a href="#">
+              <img class="rounded-t-lg" src="./images/xrp.jpg" alt="btc" />
+            </a>
+            <div class="p-5">
+              <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-950 light:text-white">XRP (XRP)</h5>
+              </a>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-800 text-justify">Developed by Ripple Labs, XRP is
+                designed to facilitate fast and cost-effective cross-border payments.</p>
+
+              <strong class="text-orange-400">
+                <p>Current Price: $3.32 per XRP</p>
+              </strong>
+              <a href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">
+                Read more
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-slate-900 px-4 py-6 fixed w-full bottom-0">
+        <div class="text-slate-50 text-center">
+          <strong>&copy; 2025 by Code-Academy</strong>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- JavaScript for Sidebar Toggle -->
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
+</body>
+
+</html>
